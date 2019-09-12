@@ -1,0 +1,16 @@
+@import url("./secondary.css");
+
+/*this is just a test comment*/
+
+body {
+    background: url("./cover-image.jpg") no-repeat;
+    object-fit: cover;
+}
+
+div {
+    display: flex;
+}
+
+.class-should-be-purged {
+    display: flex;
+}

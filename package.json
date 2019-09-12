@@ -1,0 +1,37 @@
+{
+  "name": "webpack-project",
+  "version": "1.0.0",
+  "description": "final project for webpack 4 course at SoftUni",
+  "private": true,
+  "keywords": [],
+  "author": "Ivan Tonov",
+  "scripts": {
+    "start": "npx webpack-dev-server --open --env=development",
+    "build": "npx webpack --env=production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
+    "url-loader": "^2.1.0",
+    "cssnano": "^4.1.10",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.8.0",
+    "purgecss-webpack-plugin": "^1.5.0",
+    "glob": "^7.1.4"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "core-js": "^3.2.1"
+  }
+}
