@@ -28,10 +28,18 @@ module.exports = {
             new OptimizeCSSAssetsPlugin({}),
         ],
     },
+    resolve: {
+        extensions:
+            [
+                ".jsx",
+                ".js",
+                ".json"
+            ]
+    },
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.m*(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
@@ -110,7 +118,8 @@ module.exports = {
             }
         ]),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src', 'index.html')
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            filename: "./index.html"
         }),
     ]
 };

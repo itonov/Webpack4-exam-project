@@ -4,13 +4,13 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "6.10",
           "esmodules": true
         },
         "useBuiltIns": "usage",
         "corejs": 3,
         "debug": false
       }
-    ]
+    ],
+    "@babel/preset-react"
   ]
 }
