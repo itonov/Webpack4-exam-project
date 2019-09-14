@@ -43,7 +43,8 @@ module.exports = {
             [
                 ".js",
                 ".css",
-                ".png"
+                ".png",
+                ".svg"
             ]
     },
     module: {
@@ -99,7 +100,11 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.svg$/,
+                loader: 'svg-inline-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -112,7 +117,7 @@ module.exports = {
                         },
                     },
                 ],
-            },
+            }
         ]
     },
     plugins: [

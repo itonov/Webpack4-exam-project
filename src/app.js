@@ -3,6 +3,7 @@ import './penguin';
 import './dragon';
 import testScript from "./test-file";
 import $ from 'jquery';
+import 'svg-inline-loader?classPrefix!././cake'
 
 testScript();
 
