@@ -1,9 +1,7 @@
 import './main.css';
+import './penguin.png';
+import './dragon.png';
 import testScript from "./test-file";
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
 
 testScript();
 class Foo {
@@ -13,5 +11,3 @@ class Foo {
 }
 
 console.log(new Foo('pesho').name);
-
-ReactDOM.render(<App/>, document.getElementById('react'));

@@ -1,16 +1,15 @@
 @import url("./secondary.css");
 
-/*this is just a test comment*/
+/*this is just a test comment which is automatically removed on production build*/
 
-body {
-    background: url("./cover-image.jpg") no-repeat;
-    object-fit: cover;
+body.index-body {
+    background: #0074D9;
 }
 
 div {
     display: flex;
 }
 
-.class-should-be-purged {
+.class-to-be-purged {
     display: flex;
 }

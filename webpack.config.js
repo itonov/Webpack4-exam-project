@@ -8,6 +8,7 @@ const AutoprefixerPlugin = require('autoprefixer');
 const CssNanoPlugin = require('cssnano');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -26,12 +27,15 @@ module.exports = {
     optimization: {
         minimizer: [
             new OptimizeCSSAssetsPlugin({}),
+            new UglifyJsPlugin({
+                exclude: /node_modules/,
+                cache: true,
+            })
         ],
     },
     resolve: {
         extensions:
             [
-                ".jsx",
                 ".js",
                 ".json"
             ]
@@ -39,10 +43,15 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.m*(js|jsx)$/,
+                test: /\.m?js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            "@babel/preset-env"
+                        ]
+                    }
                 }
             },
             {
@@ -51,14 +60,14 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            sourceMap: true,
-                            hmr: process.env.NODE_ENV === 'development',
+                            sourceMap: process.env.NODE_ENV === 'development',
+                            hmr: process.env.NODE_ENV === 'development'
                         }
                     },
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true,
+                            sourceMap: process.env.NODE_ENV === 'development',
                             url: true,
                             import: true,
                         }
@@ -117,6 +126,10 @@ module.exports = {
                 to: path.resolve(__dirname, 'dist')
             }
         ]),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src', 'secondary.html'),
+            filename: "./secondary.html"
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'),
             filename: "./index.html"
