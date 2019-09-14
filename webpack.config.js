@@ -30,6 +30,11 @@ module.exports = {
             new UglifyJsPlugin({
                 exclude: /node_modules/,
                 cache: true,
+                uglifyOptions: {
+                    output: {
+                        comments: false
+                    }
+                }
             })
         ],
     },
@@ -37,7 +42,8 @@ module.exports = {
         extensions:
             [
                 ".js",
-                ".json"
+                ".css",
+                ".png"
             ]
     },
     module: {
@@ -112,7 +118,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'styles/bundle.css',
+            filename: 'styles/bundle.min.css',
             path: path.resolve(__dirname, 'dist')
         }),
         new PurgeCSSPlugin({

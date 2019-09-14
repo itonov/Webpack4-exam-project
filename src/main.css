@@ -3,11 +3,15 @@
 /*this is just a test comment which is automatically removed on production build*/
 
 body.index-body {
-    background: #0074D9;
+    background: #7FDBFF;
 }
 
 div {
     display: flex;
+}
+
+p#hidden-text {
+    display: none;
 }
 
 .class-to-be-purged {
