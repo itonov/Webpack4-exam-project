@@ -3,7 +3,10 @@ import './penguin';
 import './dragon';
 import testScript from "./test-file";
 import $ from 'jquery';
-import 'svg-inline-loader?classPrefix!././cake'
+import 'svg-inline-loader?classPrefix!././cake';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
 
 testScript();
 
@@ -39,3 +42,5 @@ console.log(new Foo('pesho').name);
         });
     })
 })($);
+
+ReactDOM.render(<App/>, document.getElementById('react'));

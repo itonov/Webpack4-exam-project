@@ -22,7 +22,8 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'dist'),
         compress: true,
         writeToDisk: true,
-        hot: true
+        hot: true,
+        disableHostCheck: true
     },
     optimization: {
         minimizer: [
@@ -44,13 +45,14 @@ module.exports = {
                 ".js",
                 ".css",
                 ".png",
-                ".svg"
+                ".svg",
+                ".jsx"
             ]
     },
     module: {
         rules: [
             {
-                test: /\.m?js$/,
+                test: /\.m?(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
